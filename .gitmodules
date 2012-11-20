@@ -1,0 +1,3 @@
+[submodule "SwiftypeTouch"]
+	path = SwiftypeTouch
+	url = git@github.com:swiftype/SwiftypeTouch.git
