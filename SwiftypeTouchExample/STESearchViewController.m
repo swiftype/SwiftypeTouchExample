@@ -7,11 +7,11 @@
 //
 
 #import "STESearchViewController.h"
-#import <SwiftypeTouch/STPageDocumentTypeResultsObject.h>
+#import <SwiftypeTouch/STCommonDocumentTypeResultsObject.h>
 
 @interface STESearchViewController ()
 
-@property (nonatomic, strong) STPageDocumentTypeResultsObject *resultObject;
+@property (nonatomic, strong) STCommonDocumentTypeResultsObject *resultObject;
 
 @end
 
@@ -37,12 +37,17 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSString *engineKey = [settings valueForKey:@"engine_key"];
+    NSString *documentTypeSlug = [settings valueForKey:@"document_type"];
     
     if ([engineKey length] == 0) {
         [NSException raise:@"No engine key" format:@"Edit Settings.plist to set your engine key."];
     }
     
-    self.resultObject = [[STPageDocumentTypeResultsObject alloc] initWithViewController:self clientEngineKey:engineKey];
+    if ([documentTypeSlug length] == 0) {
+        [NSException raise:@"No DocumentType slug" format:@"Edit Settings.plist to set your DocumentType (e.g., 'page' or 'posts')."];
+    }
+    
+    self.resultObject = [[STCommonDocumentTypeResultsObject alloc] initWithViewController:self clientEngineKey:engineKey documentTypeSlug:documentTypeSlug];
     [self.view addSubview:self.resultObject.searchBar];
    
 }
