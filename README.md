@@ -1,3 +1,7 @@
+> **⚠️ This repository is deprecated ⚠️**
+>
+> **We are no longer maintaining an iOS library for Site Search. However, you can still build excellent native and mobile web experiences with [Site Search APIs and clients](https://swiftype.com/mobile-search). Thank you! - Elastic**
+
 # SwiftypeTouch Example App
 
 This example app shows how easy it is to get started with [SwiftypeTouch](https://github.com/swiftype/SwiftypeTouch) to add [Swiftype-powered search](http://swiftype.com) to your iOS application.
